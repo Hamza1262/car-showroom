@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>carsandfeatures</title>
+    <link rel="icon" type="image/x-icon" href="./images/car-regular-24.png">
+
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <style>
+@import url('http://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background: #eaeaea;
+}
+
+/* Header */
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 30px 8%;
+    background: transparent;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 100;
+}
+
+.logo {
+    font-size: 25px;
+    color: #222;
+    text-decoration: none;
+    font-weight: 600;
+    opacity: 0;
+    animation: slideRight 1s ease forwards;
+}
+
+.navbar a {
+    font-size: 18px;
+    color: #222;
+    text-decoration: none;
+    font-weight: 500;
+    margin: 0 20px;
+    transition: .3s;
+    opacity: 0;
+    animation: slideTop 1s ease forwards;
+    animation-delay: calc(.2s * var(--i));
+    display: inline-block;
+}
+
+.navbar a:hover,
+.navbar a.active {
+    color: #1743e3;
+}
+
+.social-media{
+    display: flex;
+    justify-content: space-between;
+    width: 150px;
+    height: 40px;
+}
+
+.social-media a{
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background: transparent;
+    border: 2px solid transparent ;
+    text-decoration: none;
+    transform: rotate(45deg);
+    transition: .5s;
+    opacity: 0;
+    animation: slideSci 5s ease forwards;
+    animation-delay: calc(.2s * var(--i));
+}
+
+.social-media a:hover{
+    border-color: #eaeaea;
+}
+
+.social-media a i{
+    font-size: 24px;
+    color: #eaeaea;
+    transform: rotate(-45deg);
+}
+
+/* Home Section */
+.home {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px 8% 0;
+    overflow: hidden;
+}
+
+.home-content { 
+    max-width: 630px;
+}
+
+.home-content h1 {
+    font-size: 40px;
+    line-height: 1.2;
+    animation: slideBottom 1s ease forwards;
+    animation-delay: 1s;
+    opacity: 0;
+}
+
+.home-content h3 {
+    font-size: 30px;
+    color: #1743e3;
+    animation: slideRight 2s ease forwards;
+    animation-delay: 1.3s;
+    opacity: 0;
+}
+
+.home-content p {
+    font-size: 16px;
+    margin: 15px 0 30px;
+    opacity: 0;
+    animation: slideLeft 3s ease forwards;
+    animation-delay: 1.6s;
+}
+
+.btn {
+    display: inline-block;
+    padding: 10px 28px;
+    background: #1743e3;
+    border: 2px solid #1743e3;
+    border-radius: 6px;
+    box-shadow: 0 0 10px rgba(0,0,0,.1);
+    font-size: 16px;
+    color: #eaeaea;
+    letter-spacing: 1px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: .5s;
+    opacity: 0;
+    animation: slideTop 4s ease forwards;
+    animation-delay: 1.8s;
+}
+
+.btn:hover {
+    background: transparent;
+    color: #1743e3;
+}
+
+.home-img {
+    position: relative;
+    width: 450px;
+    height: 450px;
+    transform: rotate(45deg);
+    right: -7%;
+    top: 50px;
+}
+
+.home-img .rhombus {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: #eaeaea;
+    border: 25px solid #1743e3;
+    box-shadow: -15px 15px 15px rgba(0,0,0,.2);
+    opacity: 0;
+    animation: zoomOut 5s ease forwards;
+    animation-delay: 2s;
+}
+
+.home-img .rhombus .img {
+    position: absolute;
+    max-width: 750px;
+    transform: rotate(-45deg);
+    right: 50px;
+    left: -150px;
+}
+
+.home .rhombus2 {
+    position: absolute;
+    top: -25%;
+    right: -25%;
+    width: 700px;
+    height: 700px;
+    background-color: #1743e3;
+    transform: rotate(45deg);
+    z-index: -1;
+    opacity: 0;
+    animation: rhombus2 2s ease forwards;
+}
+
+/* Animations */
+@keyframes slideRight {
+    0% { transform: translateX(-100px); opacity: 0; }
+    100% { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes slideLeft {
+    0% { transform: translateX(100px); opacity: 0; }
+    100% { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes slideTop {
+    0% { transform: translateY(100px); opacity: 0; }
+    100% { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes slideBottom {
+    0% { transform: translateY(-100px); opacity: 0; }
+    100% { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes slideSci {
+    0% { transform: translateX(100px) rotate(45deg); opacity: 0; }
+    100% { transform: translateX(0) rotate(45deg); opacity: 1; }
+}
+
+@keyframes zoomOut {
+    0% { transform: scale(1.1); opacity: 0; }
+    100% { transform: scale(1); opacity: 1; }
+}
+
+@keyframes rhombus2 {
+    0% { right: -40%; opacity: 0; }
+    100% { right: -25%; opacity: 1; }
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+    /* Header */
+    .logo {
+        font-size: 20px;
+    }
+
+    .navbar a {
+        font-size: 16px;
+        margin: 0 15px;
+    }
+
+    .home {
+        padding: 5px 5%;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .home-content h1 {
+        font-size: 35px;
+    }
+
+    .home-content h3 {
+        font-size: 25px;
+    }
+
+    .home-content p {
+        font-size: 14px;
+    }
+
+    .home-img {
+        width: 350px;
+        height: 350px;
+        right: 0;
+        top: 20px;
+    }
+
+    .home-img .rhombus .img {
+        max-width: 600px;
+        left: -100px;
+    }
+
+    .btn {
+        font-size: 14px;
+    }
+
+    .social-media {
+        width: 130px;
+        justify-content: space-between;
+    }
+
+    .social-media a {
+        width: 35px;
+        height: 35px;
+    }
+}
+
+@media (max-width: 480px) {
+    /* Header */
+    .logo {
+        font-size: 18px;
+    }
+
+    .navbar a {
+        font-size: 14px;
+        margin: 0 10px;
+    }
+
+    .home {
+        padding: 5px 5%;
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .home-content h1 {
+        font-size: 28px;
+    }
+
+    .home-content h3 {
+        font-size: 20px;
+    }
+
+    .home-content p {
+        font-size: 12px;
+    }
+
+    .home-img {
+        width: 250px;
+        height: 250px;
+        top: 10px;
+    }
+
+    .home-img .rhombus .img {
+        width: 400px;
+        left: -60px;
+    }
+
+    .btn {
+        font-size: 12px;
+    }
+
+    .social-media {
+        width: 110px;
+        justify-content: space-between;
+    }
+
+    .social-media a {
+        width: 30px;
+        height: 30px;
+    }
+}
+    </style>
+</head>
+<body>
+    <header class="header">
+        <a href="index.html" class="logo">CARS</a>
+        <nav class="navbar">
+            <a href="index.html" target="_blank" style="--i:1;" >HOME</a>
+            <a href="about.html" target="_blank" style="--i:2;">ABOUT</a>
+            <a href="feature.html" target="_blank" style="--i:3;" class="active">FEATURES</a>
+            <a href="contact.html" target="_blank" style="--i:4">CONTACT</a>
+            <a href="review.html" target="_blank" style="--i:5;">REVIEWS</a>
+        </nav>
+        <div class="social-media">
+            <a href="https://api.whatsapp.com/send/?phone=%2B923323365825&text&type=phone_number&app_absent=0" target="_blank"><i class='bx bxl-whatsapp' style="--i:1;"></i></a>
+            <a href="https://www.facebook.com/share/184yYB1rR7/" target="_blank"><i class='bx bxl-facebook' style="--i:2;"></i></a>
+            <a href="https://www.instagram.com/hamza_aqib_?igsh=bG9ncGszdjZpM29y" target="_blank"><i class='bx bxl-instagram' style="--i:3;"></i></a>
+        </div>
+    </header>
+    <section class="home">
+        <div class="home-content">
+          <h1>CAR DEALING EXPERIENCE.</h1> 
+          <h3>FEATURES!</h3> 
+          <p>
+             Some of the interesting features of a car include a sunroof, safety belts, airbags,
+             GPS, etc to provide safety to the passengers. These features enhance their driving
+             experience for the better.
+          </p>
+          <a href="explorecars.html" class="btn" target="_blank">Explore Cars</a>
+        </div>
+        <div class="home-img">
+            <div class="rhombus">
+                 <img class="img" src="./images/img1.png" alt="car" height="500px" width="500px">
+            </div>
+        </div>
+        <div class="rhombus2">hi</div>
+    </section>
+</body>
+</html>
